@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos globales personalizados */
+:root {
+  --primary-blue: #2563eb;
+  --primary-green: #16a34a;
+  --primary-purple: #9333ea;
+  --background-gradient: linear-gradient(135deg, #eff6ff 0%, #e0e7ff 100%);
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
+  line-height: 1.6;
+}
+
+/* Animaciones suaves */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estilos para la tabla de verdad */
+.truth-table-cell {
+  transition: all 0.2s ease;
+}
+
+.truth-table-cell:hover {
+  transform: scale(1.05);
+}
+
+/* Estilos para las proposiciones */
+.proposition-card {
+  transition: all 0.3s ease;
+  border-left: 4px solid transparent;
+}
+
+.proposition-card.active {
+  transform: translateX(2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.proposition-p {
+  border-left-color: var(--primary-blue);
+  background-color: #eff6ff;
+}
+
+.proposition-q {
+  border-left-color: var(--primary-green);
+  background-color: #f0fdf4;
+}
+
+.proposition-r {
+  border-left-color: var(--primary-purple);
+  background-color: #faf5ff;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .truth-table-container {
+    font-size: 0.875rem;
+  }
+
+  .proposition-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+/* Estilos para resultados */
+.result-tautology {
+  background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+  border-left-color: #16a34a;
+}
+
+.result-contradiction {
+  background: linear-gradient(135deg, #fef2f2 0%, #fecaca 100%);
+  border-left-color: #dc2626;
+}
+
+.result-contingency {
+  background: linear-gradient(135deg, #fefce8 0%, #fef3c7 100%);
+  border-left-color: #d97706;
+}
+
+/* Utilidades adicionales */
+.glass-effect {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.shadow-soft {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}

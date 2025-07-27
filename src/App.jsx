@@ -111,14 +111,12 @@ const esCondicional = (texto) =>
       return
     }
 
-    // Detectar condicionales y avisar
-     const oracionesCondicionales = afirmacionesActivas.filter(esCondicional)
-      if (oracionesCondicionales.length > 0) {
-      alert(
-        "Se detectó(s) oración(es) condicional(es):\n" +
-          oracionesCondicionales.join("\n")
-      )
-    }
+    const textoCompleto = `${afirmaciones.p} ${afirmaciones.q} ${afirmaciones.r}`;
+
+    if (!esCondicional(textoCompleto)) {
+    alert("No se detectó ninguna oración condicional.");
+    return;
+  }
 
     const tabla = generarTablaDeVerdad(afirmaciones)
     setTablaDeVerdad(tabla)

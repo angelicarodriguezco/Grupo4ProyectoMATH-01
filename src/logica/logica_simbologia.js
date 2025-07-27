@@ -4,6 +4,16 @@
 * @returns {string}
 */
 
+const reemplazos = {
+    'no': '¬',
+    'y': '∧',
+    'o': '∨',
+    'implica': '→',
+    'entonces': '→',
+    'si y solo si': '↔',
+    'equivale': '↔'
+};
+
 function convertirSimbolos(input, subjectMap) {
     // Reemplazar frases comunes por símbolos lógicos
     let output = input.toLowerCase();
@@ -16,9 +26,9 @@ function convertirSimbolos(input, subjectMap) {
     output = output.replace(/\bentonces\b/g, '→'); // entonces → → (para casos sin "si")
 
     // Reemplazar frases comunes
-    Object.keys(replacements).forEach(key => {
+    Object.keys(reemplazos).forEach(key => {
         const regex = new RegExp(`\\b${key}\\b`, 'g');
-        input = input.replace(regex, replacements[key]);
+        input = input.replace(regex, reemplazos[key]);
     });
 
     // Reemplazar sujetos por variables definidas
@@ -36,6 +46,8 @@ const subjectMap = {
 };
 const frase = "Si ser un gigante y comprender matemáticas entonces no comprender matemáticas";
 console.log(convertirSimbolos(frase, subjectMap));
+
+export { convertirSimbolos };
 
 
 /* 

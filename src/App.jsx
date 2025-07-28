@@ -111,12 +111,17 @@ const esCondicional = (texto) =>
       return
     }
 
+    // ELIMINAMOS LA RESTRICCIÓN DE CONDICIONALES OBLIGATORIAS
+    // Ahora el programa funciona con cualquier tipo de proposición lógica
     const textoCompleto = `${afirmaciones.p} ${afirmaciones.q} ${afirmaciones.r}`;
-
-    if (!esCondicional(textoCompleto)) {
-    alert("No se detectó ninguna oración condicional.");
-    return;
-  }
+    
+    // Opcional: Mostrar información sobre si se detectaron condicionales
+    const tieneCondicionales = esCondicional(textoCompleto);
+    if (tieneCondicionales) {
+      console.log("Se detectaron oraciones condicionales en las proposiciones");
+    } else {
+      console.log("No se detectaron condicionales - procesando como proposiciones simples");
+    }
 
     const tabla = generarTablaDeVerdad(afirmaciones)
     setTablaDeVerdad(tabla)
@@ -139,7 +144,7 @@ const esCondicional = (texto) =>
       <div className="max-w-6xl mx-auto space-y-6">
         <div className="text-center space-y-2">
           <h1 className="text-4xl font-bold text-gray-900">Generador de Tablas de Verdad</h1>
-          <p className="text-lg text-gray-600">Ingresa hasta tres afirmaciones y genera su tabla de verdad completa</p>
+          <p className="text-lg text-gray-600">Ingresa hasta tres proposiciones lógicas (simples, condicionales, o con conectores) y genera su tabla de verdad completa</p>
         </div>
 
         <InputExpresion statements={afirmaciones} onStatementsChange={cambiarAfirmaciones} />

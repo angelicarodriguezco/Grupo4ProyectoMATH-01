@@ -28,7 +28,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
             </Label>
             <Input
               id="statement-p"
-              placeholder="Ej: Hoy llueve"
+              placeholder="Ej: Hoy llueve, Si estudio entonces apruebo, A y B"
               value={statements.p}
               onChange={(e) => handleCambioInput("p", e.target.value)}
               className="w-full"
@@ -41,7 +41,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
             </Label>
             <Input
               id="statement-q"
-              placeholder="Ej: Voy al parque"
+              placeholder="Ej: Voy al parque, Estudio, A o B"
               value={statements.q}
               onChange={(e) => handleCambioInput("q", e.target.value)}
               className="w-full"
@@ -54,7 +54,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
             </Label>
             <Input
               id="statement-r"
-              placeholder="Ej: Llevo paraguas"
+              placeholder="Ej: Llevo paraguas, No duermo, ¬A"
               value={statements.r}
               onChange={(e) => handleCambioInput("r", e.target.value)}
               className="w-full"

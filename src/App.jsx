@@ -85,6 +85,24 @@ function App() {
     setAfirmaciones(nuevasAfirmaciones)
   }
 
+  // Función para detectar oraciones condicionales “si … entonces …”
+  
+  // Lista de patrones para distintos tipos de condicionales
+const patronesCondicionales = [
+  /\bsi\b.*\bentonces\b/i,            // si ... entonces
+  /\bsi\s+y\s+solo\s+si\b/i,          // si y solo si
+  /\bsi\s+y\s+sólo\s+si\b/i,          // si y sólo si (con tilde)
+  /\bsolo\s+si\b/i,                   // solo si
+  /\ba\s+menos\s+que\b/i,             // a menos que (unless)
+  /\ben\s+caso\s+de\s+que\b/i,        // en caso de que
+  /\bimplica\b/i,                     // implica / implica que
+  /->|=>|→|↔/                         // flechas lógicas
+]
+
+const esCondicional = (texto) =>
+  patronesCondicionales.some((regex) => regex.test(texto))
+
+
   const evaluarCamposVacios = () => {
     const afirmacionesActivas = Object.values(afirmaciones).filter((afirm) => afirm.trim() !== "")
 
@@ -92,6 +110,13 @@ function App() {
       alert("Por favor ingresa al menos una afirmación")
       return
     }
+
+    const textoCompleto = `${afirmaciones.p} ${afirmaciones.q} ${afirmaciones.r}`;
+
+    if (!esCondicional(textoCompleto)) {
+    alert("No se detectó ninguna oración condicional.");
+    return;
+  }
 
     const tabla = generarTablaDeVerdad(afirmaciones)
     setTablaDeVerdad(tabla)

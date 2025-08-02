@@ -4,7 +4,6 @@ import { useState } from "react"
 import InputExpresion from "./componentes/InputExpresion"
 import BotonEvaluar from "./componentes/BotonEvaluar"
 import TablaDeVerdad from "./componentes/TablaDeVerdad"
-// IMPORTACIÓN DEL ARCHIVO ORIGINAL: Usamos la función convertirSimbolos tal como está
 import { convertirSimbolos } from "./logica/logica_simbologia"
 
 function App() {
@@ -111,8 +110,6 @@ const esCondicional = (texto) =>
       return
     }
 
-    // ELIMINAMOS LA RESTRICCIÓN DE CONDICIONALES OBLIGATORIAS
-    // Ahora el programa funciona con cualquier tipo de proposición lógica
     const textoCompleto = `${afirmaciones.p} ${afirmaciones.q} ${afirmaciones.r}`;
     
     // Opcional: Mostrar información sobre si se detectaron condicionales

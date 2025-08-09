@@ -84,7 +84,7 @@ function TablaDeVerdad({ statements, truthTable, evaluation }) {
           </CardTitle>
           {/* DESCRIPCIÓN: Muestra cuántas filas hay (2^n combinaciones) */}
           <CardDescription>
-            Todas las combinaciones posibles de valores de verdad ({truthTable.length} filas)
+            Todas las combinaciones posibles de valores de verdad
           </CardDescription>
         </CardHeader>
         <CardContent>
